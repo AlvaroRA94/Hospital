@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!-- Vista de Lista-->
+        <record id="view_patient_tree" model="ir.ui.view">
+            <field name="name">hospital.patient.tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="last_name"/>
+                    <field name="birthday"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Fin de la Vista de Lista-->
+
+        <!-- Vista de Formulario-->
+        <record id="view_patient_form" model="ir.ui.view">
+            <field name="name">hospital.patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+
+                <form string="Patient Form View">
+                    <group>
+                        <field name="name"/>
+                        <field name="last_name"/>
+                        <field name="birthday"/>
+                        <field name="gender"/>
+                    </group>
+                </form>
+
+            </field>
+        </record>
+        <!-- Fin de la Vista de Formulario-->
+
+        <!-- Acciones-->
+        <record id="action_patient" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hospital.view_patient_tree"/>
+        </record>
+        <!-- Fin de Acciones-->
+
+        <!-- Menús-->
+        <menuitem id="menu_patient" name="Patients" sequence="10"/>
+        <menuitem id="patient" name="Show patients" parent="menu_patient" action="action_patient"/>
+        <!-- Fin de Menús-->
+
+    </data>
+
+</odoo>

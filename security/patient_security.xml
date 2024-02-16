@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="model_patient" model="ir.model">
+        <field name="name">Patient</field>
+        <field name="model">hospital.patient</field>
+        <field name="group_id" eval="[(6,0, [ref('base.group_user')])]"></field>
+    </record>
+
+    <record id="hospital_perm_patient" model="ir.model.access">
+        <field name="name">Access permits for Patient</field>
+        <field name="model_id" ref="model_patient"/>
+        <field name="group_id" ref="base.group_user"/>  
+        <field name="perm_read" eval="1"></field>
+        <field name="perm_write" eval="1"></field>
+        <field name="perm_create" eval="1"></field>
+        <field name="perm_unlink" eval="1"></field>
+    </record>
+
+</odoo>
